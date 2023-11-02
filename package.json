@@ -1,0 +1,19 @@
+{
+  "name": "alhook",
+  "version": "1.0.0",
+  "description": "All react.js custom hooks you frequently use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saifmohamedsv/alhook.git"
+  },
+  "author": "Saif Mohamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saifmohamedsv/alhook/issues"
+  },
+  "homepage": "https://github.com/saifmohamedsv/alhook#readme"
+}
