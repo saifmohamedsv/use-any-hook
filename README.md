@@ -13,7 +13,7 @@ You can install the package using npm:
 npm install use-any-hook
 ```
 
-## Hooks
+## Usage
 
 A quick quide for each hook in the [use-any-hook](https://www.npmjs.com/package/use-any-hook) package
 
