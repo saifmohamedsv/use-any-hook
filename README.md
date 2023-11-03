@@ -1,4 +1,4 @@
-# use-any-hook </>
+# useAnyHook();
 
 [![npm version](https://img.shields.io/npm/v/use-any-hook.svg?style=flat-square)](https://www.npmjs.org/package/use-any-hook)
 [![npm downloads](https://img.shields.io/npm/dm/use-any-hook.svg?style=flat-square)](https://npm-stat.com/charts.html?package=use-any-hook)
