@@ -19,11 +19,39 @@ A quick quide for each hook in the [use-any-hook](https://www.npmjs.com/package/
 
 ### 1. useFetch
 
-`useFetch` is a hook that allows you to debounce a value or function to delay its execution until a certain timeout has passed.
+`useFetch` is a hook for making HTTP requests and managing the loading and error state of the fetched data.
+
+```javascript
+import React, { useState, useEffect } from "react";
+import { useFetch s} from "use-any-hook";
+
+function MyComponent() {
+  const [data, loading, error] = useFetch("https://api.example.com/data");
+
+  useEffect(() => {
+    // Handle data when it is available
+    if (data) {
+      // Do something with the fetched data
+    }
+  }, [data]);
+
+  return (
+    <div>
+      {loading ? "Loading..." : null}
+      {error ? "Error: Unable to fetch data" : null}
+      {data ? <div>Data: {data}</div> : null}
+    </div>
+  );
+}
+```
+
+### 2. useDebounce
+
+`useDebounce` is a hook that allows you to debounce a value or function to delay its execution until a certain timeout has passed.
 
 ```javascript
 import { useState } from "react";
-import useDebounce from "use-any-hook";
+import { useDebounce } from "use-any-hook";
 
 function MyComponent() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -35,6 +63,116 @@ function MyComponent() {
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
     />
+  );
+}
+```
+
+### 3. useClickOutside
+
+`useClickOutside` detects clicks outside of a specified element and triggers a callback.
+
+```javascript
+import React, { useRef, useState } from "react";
+import { useClickOutside } from "use-any-hook";
+
+function MyComponent() {
+  const ref = useRef();
+  const [isOpen, setIsOpen] = useState(false);
+
+  useClickOutside(ref, () => {
+    setIsOpen(false);
+  });
+
+  return (
+    <div ref={ref}>{isOpen ? "Click outside to close" : "Click to open"}</div>
+  );
+}
+```
+
+### 4. useLocalStorageWithExpiry
+
+`useLocalStorageWithExpiry` extends useLocalStorage to store values with an expiration time.
+
+```javascript
+import { useLocalStorageWithExpiry } from "use-any-hook";
+
+function MyComponent() {
+  const [data, setData] = useLocalStorageWithExpiry("myData", null, 60000);
+
+  return <div>Data from local storage: {data}</div>;
+}
+```
+
+### 5. useForm
+
+`useForm` is a hook for handling form input state and simplifying form management.
+
+```javascript
+import { useForm } from "use-any-hook";
+
+function MyComponent() {
+  const { values, handleChange, resetForm } = useForm({
+    username: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Use the form values for submission
+    console.log("Submitted data:", values);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="username"
+        value={values.username}
+        onChange={handleChange}
+        placeholder="Username"
+      />
+
+      <button type="submit">Submit</button>
+      <button type="button" onClick={resetForm}>
+        Reset
+      </button>
+    </form>
+  );
+}
+```
+
+### 5. useForm
+
+`useForm` is a hook for handling form input state and simplifying form management.
+
+```javascript
+import { useForm } from "use-any-hook";
+
+function MyComponent() {
+  const { values, handleChange, resetForm } = useForm({
+    username: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Use the form values for submission
+    console.log("Submitted data:", values);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="username"
+        value={values.username}
+        onChange={handleChange}
+        placeholder="Username"
+      />
+
+      <button type="submit">Submit</button>
+      <button type="button" onClick={resetForm}>
+        Reset
+      </button>
+    </form>
   );
 }
 ```
