@@ -140,39 +140,21 @@ function MyComponent() {
 }
 ```
 
-### 5. useForm
+### 6. useDarkMode
 
-`useForm` is a hook for handling form input state and simplifying form management.
+`useDarkMode` is a hook for managing the theme, such as toggling between light and dark mode.
 
 ```javascript
-import { useForm } from "use-any-hook";
+import { useDarkMode } from "use-any-hook";
 
 function MyComponent() {
-  const { values, handleChange, resetForm } = useForm({
-    username: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Use the form values for submission
-    console.log("Submitted data:", values);
-  };
+  const { isDarkMode, toggleTheme } = useDarkMode();
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        value={values.username}
-        onChange={handleChange}
-        placeholder="Username"
-      />
-
-      <button type="submit">Submit</button>
-      <button type="button" onClick={resetForm}>
-        Reset
-      </button>
-    </form>
+    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+      {isDarkMode ? "Dark Mode" : "Light Mode"}
+    </div>
   );
 }
 ```
