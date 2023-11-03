@@ -13,6 +13,20 @@ You can install the package using npm:
 npm install use-any-hook
 ```
 
+## Content Summary
+
+Thi is a quide through the usage process, jump directly to the hook you want:
+
+#### [useFetch](https://www.npmjs.com/package/use-any-hook#1-usefetch)
+
+#### [useDebounce](https://www.npmjs.com/package/use-any-hook2-useDebounce)
+
+#### [useFetch](https://www.npmjs.com/package/use-any-hook#1-usefetch)
+
+#### [useFetch](https://www.npmjs.com/package/use-any-hook#1-usefetch)
+
+#### [useFetch](https://www.npmjs.com/package/use-any-hook#1-usefetch)
+
 ## Usage
 
 A quick quide for each hook in the [use-any-hook](https://www.npmjs.com/package/use-any-hook) package
