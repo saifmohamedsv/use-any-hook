@@ -10,7 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/saifmohamedsv/alhook.git"
   },
-  "author": "Saif Mohamed",
+  "keywords": [
+    "hooks",
+    "react.js",
+    "custom-hooks",
+    "node.js"
+  ],
+  "author": "Saif Mohamed <saifmohamed.dev@gmail.com> (https://linkedin.com/in/saifmohamedsv/)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/saifmohamedsv/alhook/issues"
