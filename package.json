@@ -1,6 +1,6 @@
 {
   "name": "use-any-hook",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "All react.js custom hooks you frequently use.",
   "main": "index.js",
   "scripts": {
