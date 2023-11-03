@@ -1,6 +1,7 @@
+// Custom hook for making HTTP requests
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
+function useFetch(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,6 +20,6 @@ const useFetch = (url) => {
   }, [url]);
 
   return { data, loading, error };
-};
+}
 
 export default useFetch;
