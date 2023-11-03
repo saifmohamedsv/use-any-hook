@@ -18,7 +18,6 @@
   "homepage": "https://github.com/saifmohamedsv/alhook#readme",
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "axios": "^1.6.0"
+    "react-dom": "^18.2.0"
   }
 }
