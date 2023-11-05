@@ -18,24 +18,33 @@ npm install use-any-hook
 Thi is a quide through the usage process, jump directly to the hook you want:
 
 ###### [useFetch](https://www.npmjs.com/package/use-any-hook#1-usefetch)
+
 ###### [useDebounce](https://www.npmjs.com/package/use-any-hook#2-useDebounce)
+
 ###### [useClickOutside](https://www.npmjs.com/package/use-any-hook#3-useClickOutside)
+
 ###### [useLocalStorageWithExpiry](https://www.npmjs.com/package/use-any-hook#4-useLocalStorageWithExpiry)
+
 ###### [useForm](https://www.npmjs.com/package/use-any-hook#5-useForm)
+
 ###### [useDarkMode](https://www.npmjs.com/package/use-any-hook#6-useDarkMode)
+
+###### [useInfiniteScroll](https://www.npmjs.com/package/use-any-hook#7-useInfiniteScroll)
 
 ## Usage
 
 A quick quide for each hook in the [use-any-hook](https://www.npmjs.com/package/use-any-hook) package
+
+```javascript
+// Example
+import { useInfiniteScroll } from "use-any-hook";
+```
 
 ### 1. useFetch
 
 `useFetch` is a hook for making HTTP requests and managing the loading and error state of the fetched data.
 
 ```javascript
-import React, { useState, useEffect } from "react";
-import { useFetch s} from "use-any-hook";
-
 function MyComponent() {
   const [data, loading, error] = useFetch("https://api.example.com/data");
 
@@ -61,9 +70,6 @@ function MyComponent() {
 `useDebounce` is a hook that allows you to debounce a value or function to delay its execution until a certain timeout has passed.
 
 ```javascript
-import { useState } from "react";
-import { useDebounce } from "use-any-hook";
-
 function MyComponent() {
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
@@ -83,9 +89,6 @@ function MyComponent() {
 `useClickOutside` detects clicks outside of a specified element and triggers a callback.
 
 ```javascript
-import React, { useRef, useState } from "react";
-import { useClickOutside } from "use-any-hook";
-
 function MyComponent() {
   const ref = useRef();
   const [isOpen, setIsOpen] = useState(false);
@@ -105,8 +108,6 @@ function MyComponent() {
 `useLocalStorageWithExpiry` extends useLocalStorage to store values with an expiration time.
 
 ```javascript
-import { useLocalStorageWithExpiry } from "use-any-hook";
-
 function MyComponent() {
   const [data, setData] = useLocalStorageWithExpiry("myData", null, 60000);
 
@@ -119,8 +120,6 @@ function MyComponent() {
 `useForm` is a hook for handling form input state and simplifying form management.
 
 ```javascript
-import { useForm } from "use-any-hook";
-
 function MyComponent() {
   const { values, handleChange, resetForm } = useForm({
     username: "",
@@ -156,8 +155,6 @@ function MyComponent() {
 `useDarkMode` is a hook for managing the theme, such as toggling between light and dark mode.
 
 ```javascript
-import { useDarkMode } from "use-any-hook";
-
 function MyComponent() {
   const { isDarkMode, toggleTheme } = useDarkMode();
 
@@ -165,6 +162,46 @@ function MyComponent() {
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
       <button onClick={toggleTheme}>Toggle Theme</button>
       {isDarkMode ? "Dark Mode" : "Light Mode"}
+    </div>
+  );
+}
+```
+
+### 7. useInfiniteScroll
+
+`useInfiniteScroll` This hook helps you implement infinite scrolling in your application, fetching and appending data as the user scrolls.
+
+```javascript
+function InfiniteScrollExample() {
+  const [items, setItems] = useState([]);
+  const [page, setPage] = useState(1);
+
+  // Simulated function to fetch more data
+  const fetchMoreData = async () => {
+    // Simulated API call to fetch more items (e.g., from a backend server)
+    const response = await fetch(`https://api.example.com/items?page=${page}`);
+    const newData = await response.json();
+
+    // Update the items and page
+    setItems([...items, ...newData]);
+    setPage(page + 1);
+  };
+
+  const isFetching = useInfiniteScroll(fetchMoreData);
+
+  useEffect(() => {
+    // Initial data fetch when the component mounts
+    fetchMoreData();
+  }, []);
+
+  return (
+    <div>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+      {isFetching && <p>Loading more items...</p>}
     </div>
   );
 }
