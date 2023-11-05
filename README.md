@@ -31,12 +31,14 @@ Thi is a quide through the usage process, jump directly to the hook you want:
 
 ###### [useInfiniteScroll](https://www.npmjs.com/package/use-any-hook#7-useInfiniteScroll)
 
+###
+
 ## Usage
 
 A quick quide for each hook in the [use-any-hook](https://www.npmjs.com/package/use-any-hook) package
 
 ```javascript
-// Example
+// Import your desired custom hook 1st.
 import { useInfiniteScroll } from "use-any-hook";
 ```
 
