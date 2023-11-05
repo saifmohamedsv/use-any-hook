@@ -6,6 +6,7 @@ import {
   useClickOutside,
   useDebounce,
   useLocalStorageWithExpiry,
+  useInfiniteScroll,
 } from "./hooks/index.js";
 
 export {
@@ -13,6 +14,7 @@ export {
   useClickOutside,
   useLocalStorage,
   useForm,
+  useInfiniteScroll,
   useDarkMode,
   useDebounce,
   useLocalStorageWithExpiry,

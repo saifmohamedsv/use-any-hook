@@ -1,4 +1,3 @@
-// Custom hook for making HTTP requests
 import { useState, useEffect } from "react";
 
 function useFetch(url) {
