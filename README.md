@@ -31,6 +31,8 @@ Thi is a quide through the usage process, jump directly to the hook you want:
 
 ###### [useInfiniteScroll](https://www.npmjs.com/package/use-any-hook#7-useInfiniteScroll)
 
+###### [useMousePosition](https://www.npmjs.com/package/use-any-hook#7-useMousePosition)
+
 ###
 
 ## Usage
@@ -204,6 +206,23 @@ function InfiniteScrollExample() {
         ))}
       </ul>
       {isFetching && <p>Loading more items...</p>}
+    </div>
+  );
+}
+```
+
+### 8. useMousePosition
+
+`useMousePosition` is a hook for detecting the mouse position in a specific div x,y axis.
+
+```javascript
+function MyComponent() {
+  const ref = React.useRef(null);
+  const { x, y } = useMousePosition(ref);
+
+  return (
+    <div ref={ref}>
+      Mouse Position: `x-axis: ${x}, y-axis: ${x}`
     </div>
   );
 }

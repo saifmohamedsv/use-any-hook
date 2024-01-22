@@ -6,3 +6,4 @@ export { default as useClickOutside } from "./use-click-outside";
 export { default as useDebounce } from "./use-debounce";
 export { default as useLocalStorageWithExpiry } from "./use-local-storage-with-expiry";
 export { default as useInfiniteScroll } from "./use-infinite-scroll";
+export { default as useMousePosition } from "./use-mouse-position";
