@@ -227,3 +227,30 @@ function MyComponent() {
   );
 }
 ```
+
+### 9. useGeoLocation
+
+`useGeoLocation` is a hook for detecting the user accurate position in latitude and longitude after asking for permission.
+
+```javascript
+function MyComponent() {
+  const { location, error } = useGeoLocation();
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
+    <div>
+      {location ? (
+        <div>
+          Latitude: {location.latitude}, Longitude: {location.longitude}
+        </div>
+      ) : (
+        <div>Fetching location...</div>
+      )}
+    </div>
+  );
+}
+
+```
