@@ -31,7 +31,9 @@ Thi is a quide through the usage process, jump directly to the hook you want:
 
 ###### [useInfiniteScroll](https://www.npmjs.com/package/use-any-hook#7-useInfiniteScroll)
 
-###### [useMousePosition](https://www.npmjs.com/package/use-any-hook#7-useMousePosition)
+###### [useMousePosition](https://www.npmjs.com/package/use-any-hook#8-useMousePosition)
+
+###### [useGeoLocation](https://www.npmjs.com/package/use-any-hook#9-useGeoLocation)
 
 ###
 
