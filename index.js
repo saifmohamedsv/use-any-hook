@@ -7,6 +7,8 @@ import {
   useDebounce,
   useLocalStorageWithExpiry,
   useInfiniteScroll,
+  useMousePosition,
+  useGeoLocation
 } from "./hooks/index.js";
 
 export {
@@ -18,4 +20,7 @@ export {
   useDarkMode,
   useDebounce,
   useLocalStorageWithExpiry,
+  useMousePosition,
+  useGeoLocation
+
 };

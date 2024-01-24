@@ -7,3 +7,4 @@ export { default as useDebounce } from "./use-debounce";
 export { default as useLocalStorageWithExpiry } from "./use-local-storage-with-expiry";
 export { default as useInfiniteScroll } from "./use-infinite-scroll";
 export { default as useMousePosition } from "./use-mouse-position";
+export { default as useGeoLocation } from "./use-geo-location";
