@@ -14,6 +14,7 @@
     "hooks",
     "react.js",
     "custom-hooks",
+    "Custom Hooks",
     "node.js",
     "Javascript",
     "Frontend Development",
@@ -28,5 +29,9 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   }
 }
