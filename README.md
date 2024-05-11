@@ -78,7 +78,18 @@ function MyComponent() {
 ```javascript
 function MyComponent() {
   const [searchTerm, setSearchTerm] = useState("");
-  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
+
+  const handleSearch = async () => {
+    const response = await fetch(
+      `https://dummyjson.com/products/search?q=${debouncedSearchTerm}`
+    );
+  };
+
+  useEffect(() => {
+    handleSearch();
+    // This will be called after (1000ms = 1second) from your last keypress
+  }, [debouncedSearchTerm]);
 
   return (
     <input
@@ -94,17 +105,20 @@ function MyComponent() {
 
 `useClickOutside` detects clicks outside of a specified element and triggers a callback.
 
-```javascript
+```typescript
 function MyComponent() {
-  const ref = useRef();
-  const [isOpen, setIsOpen] = useState(false);
+  const myRef = useRef<HTMLDivElement>(null);
 
-  useClickOutside(ref, () => {
-    setIsOpen(false);
-  });
+  const handleClickOutside = () => {
+    console.log("Clicked outside the element");
+  };
+
+  useClickOutside(myRef, handleClickOutside);
 
   return (
-    <div ref={ref}>{isOpen ? "Click outside to close" : "Click to open"}</div>
+    <div className="p-14 bg-red-500" ref={myRef}>
+      {/* Your content here */}
+    </div>
   );
 }
 ```
@@ -113,11 +127,31 @@ function MyComponent() {
 
 `useLocalStorageWithExpiry` extends useLocalStorage to store values with an expiration time.
 
-```javascript
+```typescript
 function MyComponent() {
-  const [data, setData] = useLocalStorageWithExpiry("myData", null, 60000);
+  const [data, setData] = useState<string | null>('');
 
-  return <div>Data from local storage: {data}</div>;
+  const { value, setStoredValue } = useLocalStorageWithExpiry('key', 'initialValue', 3000); // Expire after 3 seconds
+
+  useEffect(() => {
+    if (value) {
+      // Use the retrieved data
+      console.log('Data from localStorage:', value);
+      setData(value); // Set the component state with retrieved data
+    }
+  }, [value]);
+
+  const handleSaveData = (newData: string) => {
+    setData(newData);
+    setStoredValue(newData);
+  };
+
+  return (
+    <div>
+      <input value={data || ''} onChange={(e) => setData(e.target.value)} />
+      <button onClick={() => handleSaveData(data)}>Save Data</button>
+    </div>
+  );
 }
 ```
 
@@ -163,6 +197,9 @@ function MyComponent() {
 ```javascript
 function MyComponent() {
   const { isDarkMode, toggleTheme } = useDarkMode();
+
+  // toggleTheme() function toggles the body tag className too.
+  // <body className="dark"></body>
 
   return (
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
@@ -246,7 +283,7 @@ function MyComponent() {
     <div>
       {location ? (
         <div>
-          Latitude: {location.latitude}, Longitude: {location.longitude}
+          Latitude: {location.coords.latitude}, Longitude: {location.coords.longitude}
         </div>
       ) : (
         <div>Fetching location...</div>
@@ -254,5 +291,4 @@ function MyComponent() {
     </div>
   );
 }
-
 ```
